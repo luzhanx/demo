@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <h1>{{ computedText }}</h1>
+        <div><input type="text" v-model="text"></div>
+        <div v-luzhan="text">Hello</div>
+    </div>
+
+    <script src="./js/vue.min.js"></script>
+    <script>
+        Vue.directive('luzhan', {
+            bind(){
+                console.log('bind')
+            },
+            inserted(){
+                console.log('inserted')
+            },
+            update(){
+                console.log('update')
+            }
+        })
+        let app = new Vue({
+            el: '#app',
+            data: {
+                text: 'Hello Vue',
+                isTrue: []
+            },
+            computed: {
+                computedText() {
+                    return this.text.replace(/Vue/, 'Vue Computed');
+                }
+            },
+        })
+
+    </script>
+</body>
+
+</html>

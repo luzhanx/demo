@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <h1>{{ text }}</h1>
+        <h2>{{ count }}</h2>
+        <button @click="VuexState.commit('add')">Add</button>
+        <button @click="VuexState.commit('reduce')">Reduce</button>
+
+    </div>
+
+    <script src="./js/vue.min.js"></script>
+    <script src="https://unpkg.com/vuex"></script>
+    <script src="./vuex/store.js"></script>
+    <script>
+
+        let app = new Vue({
+            el: '#app',
+            data: {
+                text: 'Hello Vue',
+                VuexState,
+            },
+            store: VuexState,
+            computed: Vuex.mapState(['count'])
+        })
+
+    </script>
+</body>
+
+</html>
