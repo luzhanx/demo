@@ -5,15 +5,23 @@ const state = {
 };
 
 const mutations = {
-    add(state){
-        state.count++;
-    },
-    reduce(state){
-        state.count--;
-    }
-}
+	add(state, value) {
+		state.count += value;
+	},
+	reduce(state) {
+		state.count--;
+	}
+};
+
+const actions = {
+	addAction(context, fn) {
+		setTimeout(() => {
+			context.commit('add', 99);
+			fn(99);
+		}, 1000);
+	}
+};
 
 const VuexState = new Vuex.Store({
-    state,
-    mutations
-})
+
+});

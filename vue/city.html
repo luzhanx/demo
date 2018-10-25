@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>City</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #city[v-cloak] {
+        display: none;
+    }
+    #city{
+        position: relative;
+    }
+    #city *{
+        box-sizing: border-box;
+    }
+    #city input{
+        display: block;
+        width: 100%;
+        font-size: 16px;
+        height: 45px;
+        padding: 0 10px;
+        box-sizing: border-box;
+        border: 1px solid #888;
+        /* border-radius: 8px; */
+        outline: none;
+    }
+    #city .list{
+        position: absolute;
+        top: 45px;
+        left: 0;
+        width: 100%;
+        height: 400px;
+        border: 1px solid #000;
+        box-sizing: border-box;
+        overflow: scroll;
+    }
+    #city .list .item{
+        /* height: 30px; */
+        padding: 0 10px;
+    }
+    #city .list .item .frist{
+        display: flex;
+        height: 30px;
+        align-items: center;
+    }
+    #city .list .item .choose{
+        width: 20px;
+        height: 20px;
+        border: 1px solid #000;
+    }
+    #city .list .item .choose.active{
+        background: red;
+    }
+    #city .list .item .name{
+        flex: 1;
+        padding-left: 5px;
+    }
+    #city .children{
+        width: 100%;
+        padding-left: 20px;
+    }
+    #city .children2{
+        width: 100%;
+        padding-left: 40px;
+    }
+    
+</style>
+
+<body>
+
+    <div id="city" v-cloak>
+        <input type="text" value="">
+        <div class="list">
+            <div class="item" v-for="(provincial, pkey) of getData" :key="provincial.id">
+                <div class="frist" @click="choose(provincial)">
+                    <div :class="provincial.active ? 'choose active':'choose'"></div>
+                    <div class="name">{{ provincial.name }}</div>
+                </div>
+                <div class="children" v-for="(city, ckey) of provincial.children" :key="city.id">
+                    <div class="item">
+                        <div class="frist" @click="choose(city)">
+                            <div :class="city.active ? 'choose active':'choose'"></div>
+                            <div class="name">{{ city.name }}</div>
+                        </div>
+                        <div class="children" v-for="(area, akey) of city.children" :key="area.id">
+                            <div class="item">
+                                <div class="frist" @click="choose(area)">
+                                    <div :class="area.active ? 'choose active':'choose'"></div>
+                                    <div class="name">{{ area.name }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="./data.js"></script>
+    <script src="https://vuejs.org/js/vue.min.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#city',
+            data: {
+                getData: []
+            },
+            mounted: function () {
+                this.getData = getData;
+
+                console.log(getData)
+            },
+            methods: {
+                choose: function (item) {
+                    const active = !item.active;
+
+                    
+                    this.digui(item, active)
+                    // if (item.children && item.children.length > 0) {
+                    //     item.children.forEach((item2) => {
+                    //         this.$set(item2, 'active', active)
+                    //         if (item2.children && item2.children.length > 0) {
+                    //             item2.children.forEach((item3) => {
+                    //                 this.$set(item3, 'active', active)
+                    //             })
+                    //         }
+                    //     })
+                    // }
+                },
+
+                digui(data, active){
+                    const that = this;
+                    this.$set(data, 'active', active)
+                    data.children && data.children.forEach((item) => {
+                        console.log(active)
+                        that.$set(item, 'active', active)
+                        return that.digui(item, active);
+                    });
+                    
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

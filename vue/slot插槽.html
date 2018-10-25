@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <transition 
+        appear 
+        appear-active-class="animated bounceInDown" 
+        enter-active-class="animated bounceInDown "
+        leave-active-class="animated bounceOutRight"
+        
+            >
+            <div v-if="show">
+                Hello Vue
+            </div>
+        </transition>
+        <button @click="handleClick">切换</button>
+    </div>
+
+    <script src="./js/vue.min.js"></script>
+    <script>
+
+
+        let app = new Vue({
+            el: '#app',
+            data: {
+                show: true
+            },
+            methods: {
+                handleClick() {
+                    this.show = !this.show;
+                }
+            }
+
+        })
+
+    </script>
+</body>
+
+</html>

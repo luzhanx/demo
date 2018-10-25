@@ -13,8 +13,8 @@
     <div id="app">
         <h1>{{ text }}</h1>
         <h2>{{ count }}</h2>
-        <button @click="VuexState.commit('add')">Add</button>
-        <button @click="VuexState.commit('reduce')">Reduce</button>
+        <button @click="addAction(1)">Add</button>
+        <button @click="reduce">Reduce</button>
 
     </div>
 
@@ -22,7 +22,13 @@
     <script src="https://unpkg.com/vuex"></script>
     <script src="./vuex/store.js"></script>
     <script>
+        let mapState = Vuex.mapState;
+        let mapMutations = Vuex.mapMutations;
+        let mapActions = Vuex.mapActions;
+        
+        console.log(VuexState)
 
+        console.log(mapMutations(['add', 'reduce']))
         let app = new Vue({
             el: '#app',
             data: {
@@ -30,7 +36,20 @@
                 VuexState,
             },
             store: VuexState,
-            computed: Vuex.mapState(['count'])
+            computed: {
+                // 获取Vuex状态值
+                ...mapState(['count'])
+            },
+            methods: {
+                // 获取Vuex方法
+                ...mapMutations(['add', 'reduce']), 
+                ...mapActions(['addAction'])
+            },
+            mounted() {
+                this.addAction((data)=> {
+                    console.log(data)
+                });
+            },
         })
 
     </script>
