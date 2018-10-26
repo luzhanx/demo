@@ -8,6 +8,30 @@
     <title>City</title>
 </head>
 <style>
+
+    @font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1540536871790'); /* IE9*/
+  src: url('iconfont.eot?t=1540536871790#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff;charset=utf-8;base64,d09GRgABAAAAAATcAAsAAAAAB0gAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABHU1VCAAABCAAAADMAAABCsP6z7U9TLzIAAAE8AAAARAAAAFY8iUsXY21hcAAAAYAAAABYAAABhnEE0PNnbHlmAAAB2AAAAQgAAAEgKKdqG2hlYWQAAALgAAAALQAAADYTD/pUaGhlYQAAAxAAAAAcAAAAJAfeA4RobXR4AAADLAAAAAwAAAAMDAAAAGxvY2EAAAM4AAAACAAAAAgAYgCQbWF4cAAAA0AAAAAeAAAAIAEQAEpuYW1lAAADYAAAAUUAAAJtPlT+fXBvc3QAAASoAAAAMgAAAEaci/qFeJxjYGRgYOBikGPQYWB0cfMJYeBgYGGAAJAMY05meiJQDMoDyrGAaQ4gZoOIAgCKIwNPAHicY2BkYWCcwMDKwMHUyXSGgYGhH0IzvmYwYuRgYGBiYGVmwAoC0lxTGByeCb9UZW7438AQw9zA0AAUZgTJAQDhrwweeJztkLENgDAMBO+TkALRMQMSBQNRMT5Spgi2A1vw0vntd9IYmIBsHEYBXQjXaakiz8yRl3hTzUW617b1Dp+bZLtqnvyfKr+WqPs7Jb/WwPu2DdADFFMOMnicHY/BSsNAEIb3391mKdJI2CY1IQ1syqaHQsCkSQSR9i2kNy++RS+iZx/A3Lx46TOIgnjVR/ARxKtmcZM5zDD/z/x8Qxixxd7oF4lJTi4I0SzHUonKhfASnKPYoC5VUTdVWdQjTyYole8IlR7DWSHT04VKlyyrGxXMZMCe93zmdruRDIFQHuSkYQyt3S798O/xypp0BWGuB+MgWMm7HccelNOnfn7j0/WA/rhrZTQ5o5HM1D1+zIPrZQJWQEs5PjgDuDnlFp8OP7ywMQlIRAjWmWVyfG8a9OCVt17mWCitfEWJTsz7XOs5/Y01ddITc2tusDGvdFC7O9tjdEdjP9xubeo/HNk0K3icY2BkYGAAYs/IY/fi+W2+MnCzMIDA9R+31ZFpFgZmTiDFwcAE4gEANMYJswAAAHicY2BkYGBu+N/AEMPCAAJAkpEBFTADAEcJAmwEAAAABAAAAAQAAAAAAAAAAGIAkHicY2BkYGBgZrADYhBgAmIuIGRg+A/mMwAADu4BWwAAeJxlj01OwzAQhV/6B6QSqqhgh+QFYgEo/RGrblhUavdddN+mTpsqiSPHrdQDcB6OwAk4AtyAO/BIJ5s2lsffvHljTwDc4Acejt8t95E9XDI7cg0XuBeuU38QbpBfhJto41W4Rf1N2MczpsJtdGF5g9e4YvaEd2EPHXwI13CNT+E69S/hBvlbuIk7/Aq30PHqwj7mXle4jUcv9sdWL5xeqeVBxaHJIpM5v4KZXu+Sha3S6pxrW8QmU4OgX0lTnWlb3VPs10PnIhVZk6oJqzpJjMqt2erQBRvn8lGvF4kehCblWGP+tsYCjnEFhSUOjDFCGGSIyujoO1Vm9K+xQ8Jee1Y9zed0WxTU/3OFAQL0z1xTurLSeTpPgT1fG1J1dCtuy56UNJFezUkSskJe1rZUQuoBNmVXjhF6XNGJPyhnSP8ACVpuyAAAAHicY2BigAAuBuyAmZGJkZmRhYG3PDUvKzMRhNMS83gq80srMlNS00qTUvMYGACpHgqhAAA=') format('woff'),
+  url('iconfont.ttf?t=1540536871790') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1540536871790#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-wenjianopen:before { content: "\e925"; }
+
+.icon-wenjianoff:before { content: "\e613"; }
+
+
+</style>
+<style>
     *{
         margin: 0;
         padding: 0;
@@ -51,9 +75,30 @@
         height: 30px;
         align-items: center;
     }
+    #city .list .item .open{
+        width:0; 
+        height:0; 
+        border-top: 6px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-left: 8px solid #000;
+        margin-right: 10px;
+    }
+    #city .list .item .onopen{
+        width:0; 
+        height:0; 
+        border-top: 6px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-left: 8px solid #000;
+        margin-right: 10px;
+        transform: rotate(90deg);
+    }
+    #city .list .item .icon{
+        font-size: 20px;
+    }
     #city .list .item .choose{
-        width: 20px;
-        height: 20px;
+        width: 14px;
+        height: 14px;
+        border-radius: 2px;
         border: 1px solid #000;
     }
     #city .list .item .choose.active{
@@ -62,6 +107,9 @@
     #city .list .item .name{
         flex: 1;
         padding-left: 5px;
+    }
+    #city .list .item .name.activeHigt{
+        color: red;
     }
     #city .children{
         width: 100%;
@@ -77,24 +125,43 @@
 <body>
 
     <div id="city" v-cloak>
-        <input type="text" value="">
-        <div class="list">
+        <input type="text" :value="result" @click="showComponent()">
+        <div class="list" v-show="cityComponent">
             <div class="item" v-for="(provincial, pkey) of getData" :key="provincial.id">
-                <div class="frist" @click="choose(provincial)">
-                    <div :class="provincial.active ? 'choose active':'choose'"></div>
-                    <div class="name">{{ provincial.name }}</div>
+                <div class="frist">
+                    <div v-if="config.multiple === 1 && config.level !== 1" :class="provincial.show ? 'onopen':'open'"
+                        @click="showChildren(provincial)"></div>
+                    <div v-if="config.multiple === 0 && (config.level === 2 || config.level === 3)" :class="provincial.show ? 'onopen':'open'"
+                        @click="showChildren(provincial)"></div>
+                    <template v-if="config.multiple === 1">
+                        <i v-if="config.level === 2 || config.level === 3" :class="provincial.show ? 'iconfont icon-wenjianopen icon':'iconfont icon-wenjianoff icon'"></i>
+                        <div v-else :class="provincial.active ? 'choose active':'choose'"></div>
+                    </template>
+                    <template v-else>
+                        <div :class="provincial.active ? 'choose active':'choose'"></div>
+                    </template>
+                    <div :class="provincial.Hactive ? 'name activeHigt':'name'" @click="choose(provincial)">{{
+                        provincial.name }}</div>
                 </div>
-                <div class="children" v-for="(city, ckey) of provincial.children" :key="city.id">
+                <div v-show="provincial.show" class="children" v-for="(city, ckey) of provincial.children" :key="city.id">
                     <div class="item">
-                        <div class="frist" @click="choose(city)">
-                            <div :class="city.active ? 'choose active':'choose'"></div>
-                            <div class="name">{{ city.name }}</div>
+                        <div class="frist">
+                            <div v-if="city.children" :class="city.show ? 'onopen':'open'" @click="showChildren(city)"></div>
+                            <template v-if="config.multiple === 1">
+                                <i v-if="config.level !== 2" :class="city.show ? 'iconfont icon-wenjianopen icon':'iconfont icon-wenjianoff icon'"></i>
+                                <div v-else :class="city.active ? 'choose active':'choose'"></div>
+                            </template>
+                            <template v-else>
+                                <div :class="city.active ? 'choose active':'choose'"></div>
+                            </template>
+                            <div :class="city.Hactive ? 'name activeHigt':'name'" @click="choose(city, provincial)">{{
+                                city.name }}</div>
                         </div>
-                        <div class="children" v-for="(area, akey) of city.children" :key="area.id">
+                        <div v-show="city.show" class="children" v-for="(area, akey) of city.children" :key="area.id">
                             <div class="item">
-                                <div class="frist" @click="choose(area)">
+                                <div class="frist">
                                     <div :class="area.active ? 'choose active':'choose'"></div>
-                                    <div class="name">{{ area.name }}</div>
+                                    <div class="name" @click="choose(area, provincial, city)">{{ area.name }}</div>
                                 </div>
                             </div>
                         </div>
@@ -102,49 +169,232 @@
                 </div>
             </div>
         </div>
-
     </div>
     <script src="./data.js"></script>
-    <script src="https://vuejs.org/js/vue.min.js"></script>
+    <script src="./js/vue.min.js"></script>
     <script>
+
         var app = new Vue({
             el: '#city',
             data: {
-                getData: []
+                getData: getData,    // 数据源
+                xuanz: '',
+                result: '',
+                config: {
+                    multiple: 0, // 设置单双选    0 全选 1单选
+                    level: 3, // 设置显示几级城市  1为省份 2为市区 3为县区 
+                },
+                cityComponent: false
             },
-            mounted: function () {
-                this.getData = getData;
-
-                console.log(getData)
+            mounted() {
+                this.init();
             },
             methods: {
-                choose: function (item) {
-                    const active = !item.active;
+                // 初始化格式数据
+                init() {
+                    const level = this.config.level;
+                    let that = this;
+                    let getData = [];
 
-                    
-                    this.digui(item, active)
-                    // if (item.children && item.children.length > 0) {
-                    //     item.children.forEach((item2) => {
-                    //         this.$set(item2, 'active', active)
-                    //         if (item2.children && item2.children.length > 0) {
-                    //             item2.children.forEach((item3) => {
-                    //                 this.$set(item3, 'active', active)
-                    //             })
-                    //         }
-                    //     })
-                    // }
+                    switch (level) {
+                        case 1:
+                            getData = this.getData.map(item => {
+                                return {
+                                    id: item.id,
+                                    name: item.name,
+                                    active: this.xuanz.split(',').indexOf(`${item.id}`) !== -1 ? true : false
+                                }
+                            })
+                            break;
+                        case 2:
+                            getData = this.getData.map(item => {
+                                return {
+                                    id: item.id,
+                                    name: item.name,
+                                    children: item.children && item.children.map(children => {
+                                        return {
+                                            id: children.id,
+                                            name: children.name,
+                                            active: this.xuanz.split(',').indexOf(`${children.id}`) !== -1 ? true : false
+                                        }
+                                    })
+                                }
+                            })
+                            break;
+                        case 3:
+                            getData = this.getData.map(item => {
+                                return {
+                                    id: item.id,
+                                    name: item.name,
+                                    children: item.children && item.children.map(children => {
+                                        return {
+                                            id: children.id,
+                                            name: children.name,
+                                            children: children.children && children.children.map(children2 => {
+                                                var active = this.xuanz.split(',').indexOf(`${children2.id}`) !== -1 ? true : false;
+                                                return {
+                                                    id: children2.id,
+                                                    name: children2.name,
+                                                    active: active
+                                                }
+                                            })
+                                        }
+                                    })
+                                }
+                            })
+                            break;
+                    }
+                    console.log(getData)
+                    this.getData = getData;
+                    this.result = this.__result();
+                    this.pActive();
+                },
+                /**
+                * 获取城市数据
+                * @params {levelNumber}  default1为省份 2为市区 3为县区 
+                */
+                __result(levelNumber) {
+                    const result = [];
+                    const resultIndex = [];
+                    const level = levelNumber ? levelNumber : this.config.level;
+
+                    switch (level) {
+                        case 1:
+                            this.getData.map((item) => {
+                                item.active ? result.push(item.name) && resultIndex.push(item.id) : ''
+                            })
+                            break;
+                        case 2:
+                            this.getData.map((item) => {
+                                // 如果没有下级
+                                if (!item.children) {
+                                    // item.active ? result.push(item.name) : ''
+                                } else {
+                                    item.children.map(item2 => {
+                                        item2.active ? result.push(item2.name) && resultIndex.push(item2.id) : ''
+                                    })
+                                }
+                            })
+                            break;
+                        case 3:
+                            this.getData.map((item) => {
+                                // 如果没有下级
+                                if (!item.children) {
+                                    // item.active ? result.push(item.name) : ''
+                                } else {
+                                    item.children.map(item2 => {
+                                        if (!item2.children) {
+                                            // item2.active ? result.push(item2.name) : ''
+                                        } else {
+                                            item2.children.map(item3 => {
+                                                if (!item3.children) {
+                                                    item3.active ? result.push(item3.name) && resultIndex.push(item3.id) : ''
+                                                }
+                                            })
+                                        }
+                                    })
+                                }
+                            })
+                            break;
+                        default:
+                            break;
+                    }
+                    this.xuanz = resultIndex.join(',');
+                    return result;
+                },
+                // 展开
+                showChildren(item) {
+                    this.$set(item, 'show', !item.show)
+                },
+                // 选择
+                choose(item, pActive, cActive) {
+                    const that = this;
+                    const active = !item.active;
+                    const multiple = this.config.multiple;
+                    const level = this.config.level;
+                    // 单选
+                    if (multiple === 1) {
+                        console.log(level === 3 && !cActive)
+                        if ((level === 2 && !pActive) || (level === 3 && !cActive)) {
+                            return;
+                        }
+
+                        this.diguiChoose2(this.getData, false);
+                        this.$set(item, 'active', active);
+
+                        this.pActive();
+                        this.result = this.__result();
+                        console.log(`选中的值 ${this.result}`);
+                        console.log(`选中的ID ${this.xuanz}`);
+                        return;
+                    }
+
+                    this.diguiChoose(item, active)
+                    this.$nextTick(() => {
+                        // 如果取消选中 那么上一个值为未选中
+                        if (active === false) {
+                            pActive ? pActive.active = false : null;
+                            cActive ? cActive.active = false : null;
+
+                        } else if (active === true) {
+                            // 向上遍历
+                            cActive && cActive.children.every((data) => {
+                                return data.active;
+                            }) ? this.$set(cActive, 'active', true) : null
+
+                            pActive && pActive.children.every((data) => {
+                                return data.active;
+                            }) ? this.$set(pActive, 'active', true) : null
+                        }
+
+                        this.pActive();
+                        that.result = this.__result();
+                        console.log(`选中的值 ${this.result}`);
+                        console.log(`选中的ID ${this.xuanz}`);
+                    })
                 },
 
-                digui(data, active){
+                // 父类变色
+                pActive() {
+                    this.getData.map((pActive) => {
+                        pActive.children && pActive.children.map((cActive) => {
+                            let cactive = false;
+                            cActive.children && cActive.children.some((data) => {
+                                return data.active;
+                            }) ? this.$set(cActive, 'Hactive', true) : cActive && this.$set(cActive, 'Hactive', false)
+                        });
+                        console.log(pActive)
+                        pActive.children && pActive.children.some((data) => {
+                            return data.active || data.Hactive;
+                        }) ? this.$set(pActive, 'Hactive', true) : pActive && this.$set(pActive, 'Hactive', false)
+
+                    })
+                },
+
+
+
+                // [131,132]
+                // 递归选择
+                diguiChoose(data, active) {
                     const that = this;
                     this.$set(data, 'active', active)
                     data.children && data.children.forEach((item) => {
-                        console.log(active)
                         that.$set(item, 'active', active)
-                        return that.digui(item, active);
+                        that.diguiChoose(item, active);
                     });
-                    
+                },
+                diguiChoose2(data, active) {
+                    const that = this;
+
+                    data.forEach(item => {
+                        this.$set(item, 'active', active)
+                        that.diguiChoose(item, active);
+                    })
+                },
+                showComponent() {
+                    this.cityComponent = !this.cityComponent
                 }
+
             }
         })
     </script>
