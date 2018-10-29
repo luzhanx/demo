@@ -1,0 +1,128 @@
+#city[v-cloak] {
+    display: none;
+}
+
+#city {
+    position: relative;
+}
+
+#city * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#city input {
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    height: 45px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    border: 1px solid #888;
+    /* border-radius: 8px; */
+    outline: none;
+}
+
+#city .list {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    overflow: scroll;
+}
+
+#city .list .item {
+    /* height: 30px; */
+    padding: 0 10px;
+}
+
+#city .list .item .frist {
+    display: flex;
+    height: 30px;
+    align-items: center;
+}
+
+#city .list .item .open {
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid #000;
+    margin-right: 10px;
+}
+
+#city .list .item .onopen {
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid #000;
+    margin-right: 10px;
+    transform: rotate(90deg);
+}
+
+#city .list .item .icon {
+    font-size: 20px;
+}
+
+#city .list .item .choose {
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+    border: 1px solid #000;
+}
+
+#city .list .item .choose.active {
+    background: red;
+}
+
+#city .list .item .name {
+    flex: 1;
+    padding-left: 5px;
+}
+
+#city .list .item .name.activeHigt {
+    color: red;
+}
+
+#city .children {
+    width: 100%;
+    padding-left: 20px;
+}
+
+#city .children2 {
+    width: 100%;
+    padding-left: 40px;
+}
+
+@font-face {
+    font-family: "iconfont";
+    src: url('iconfont.eot?t=1540536871790');
+    /* IE9*/
+    src: url('iconfont.eot?t=1540536871790#iefix') format('embedded-opentype'),
+        /* IE6-IE8 */
+        url('data:application/x-font-woff;charset=utf-8;base64,d09GRgABAAAAAATcAAsAAAAAB0gAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABHU1VCAAABCAAAADMAAABCsP6z7U9TLzIAAAE8AAAARAAAAFY8iUsXY21hcAAAAYAAAABYAAABhnEE0PNnbHlmAAAB2AAAAQgAAAEgKKdqG2hlYWQAAALgAAAALQAAADYTD/pUaGhlYQAAAxAAAAAcAAAAJAfeA4RobXR4AAADLAAAAAwAAAAMDAAAAGxvY2EAAAM4AAAACAAAAAgAYgCQbWF4cAAAA0AAAAAeAAAAIAEQAEpuYW1lAAADYAAAAUUAAAJtPlT+fXBvc3QAAASoAAAAMgAAAEaci/qFeJxjYGRgYOBikGPQYWB0cfMJYeBgYGGAAJAMY05meiJQDMoDyrGAaQ4gZoOIAgCKIwNPAHicY2BkYWCcwMDKwMHUyXSGgYGhH0IzvmYwYuRgYGBiYGVmwAoC0lxTGByeCb9UZW7438AQw9zA0AAUZgTJAQDhrwweeJztkLENgDAMBO+TkALRMQMSBQNRMT5Spgi2A1vw0vntd9IYmIBsHEYBXQjXaakiz8yRl3hTzUW617b1Dp+bZLtqnvyfKr+WqPs7Jb/WwPu2DdADFFMOMnicHY/BSsNAEIb3391mKdJI2CY1IQ1syqaHQsCkSQSR9i2kNy++RS+iZx/A3Lx46TOIgnjVR/ARxKtmcZM5zDD/z/x8Qxixxd7oF4lJTi4I0SzHUonKhfASnKPYoC5VUTdVWdQjTyYole8IlR7DWSHT04VKlyyrGxXMZMCe93zmdruRDIFQHuSkYQyt3S798O/xypp0BWGuB+MgWMm7HccelNOnfn7j0/WA/rhrZTQ5o5HM1D1+zIPrZQJWQEs5PjgDuDnlFp8OP7ywMQlIRAjWmWVyfG8a9OCVt17mWCitfEWJTsz7XOs5/Y01ddITc2tusDGvdFC7O9tjdEdjP9xubeo/HNk0K3icY2BkYGAAYs/IY/fi+W2+MnCzMIDA9R+31ZFpFgZmTiDFwcAE4gEANMYJswAAAHicY2BkYGBu+N/AEMPCAAJAkpEBFTADAEcJAmwEAAAABAAAAAQAAAAAAAAAAGIAkHicY2BkYGBgZrADYhBgAmIuIGRg+A/mMwAADu4BWwAAeJxlj01OwzAQhV/6B6QSqqhgh+QFYgEo/RGrblhUavdddN+mTpsqiSPHrdQDcB6OwAk4AtyAO/BIJ5s2lsffvHljTwDc4Acejt8t95E9XDI7cg0XuBeuU38QbpBfhJto41W4Rf1N2MczpsJtdGF5g9e4YvaEd2EPHXwI13CNT+E69S/hBvlbuIk7/Aq30PHqwj7mXle4jUcv9sdWL5xeqeVBxaHJIpM5v4KZXu+Sha3S6pxrW8QmU4OgX0lTnWlb3VPs10PnIhVZk6oJqzpJjMqt2erQBRvn8lGvF4kehCblWGP+tsYCjnEFhSUOjDFCGGSIyujoO1Vm9K+xQ8Jee1Y9zed0WxTU/3OFAQL0z1xTurLSeTpPgT1fG1J1dCtuy56UNJFezUkSskJe1rZUQuoBNmVXjhF6XNGJPyhnSP8ACVpuyAAAAHicY2BigAAuBuyAmZGJkZmRhYG3PDUvKzMRhNMS83gq80srMlNS00qTUvMYGACpHgqhAAA=') format('woff'),
+        url('iconfont.ttf?t=1540536871790') format('truetype'),
+        /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+        url('iconfont.svg?t=1540536871790#iconfont') format('svg');
+    /* iOS 4.1- */
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-wenjianopen:before {
+    content: "\e925";
+}
+
+.icon-wenjianoff:before {
+    content: "\e613";
+}
