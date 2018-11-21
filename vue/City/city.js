@@ -8,7 +8,7 @@ var CityC = {
             result: '',
             config: {
                 multiple: 0, // 设置单双选    0 全选 1单选
-                level: 3, // 设置显示几级城市  1为省份 2为市区 3为县区 
+                level: 2 , // 设置显示几级城市  1为省份 2为市区 3为县区 
                 active: '#5b5db9',
                 Hactive: '#5b5db9',
                 height: '200px'
@@ -218,6 +218,7 @@ var CityC = {
             const active = !item.active;
             const multiple = this.config.multiple;
             const level = this.config.level;
+
             // 单选
             if (multiple === 1) {
                 console.log(level === 3 && !cActive)
@@ -234,19 +235,22 @@ var CityC = {
                 console.log(`选中的ID ${this.xuanz}`);
                 return;
             }
-
+            
+            if(!cActive && item.children && !item.children.length) return 
             this.diguiChoose(item, active)
             this.$nextTick(() => {
+
                 // 如果取消选中 那么上一个值为未选中
                 if (active === false) {
                     pActive ? pActive.active = false : null;
                     cActive ? cActive.active = false : null;
 
                 } else if (active === true) {
+                    
                     // 向上遍历
                     cActive && cActive.children.every((data) => {
                         return data.active;
-                    }) ? this.$set(cActive, 'active', true) : null
+                    }) ?   this.$set(cActive, 'active', true) : null
 
                     pActive && pActive.children.every((data) => {
                         return data.active;
@@ -264,19 +268,18 @@ var CityC = {
         pActive() {
             this.getData.map((pActive) => {
                 pActive.children && pActive.children.map((cActive) => {
-                    let cactive = false;
                     cActive.children && cActive.children.some((data) => {
                         return data.active;
                     }) ? this.$set(cActive, 'Hactive', true) : cActive && this.$set(cActive, 'Hactive', false)
-                    cActive.children && cActive.children.every((data) => {
+                    cActive.children && cActive.children.length > 0 && cActive.children.every((data) => {
                         return data.active;
                     }) ? this.$set(cActive, 'active', true) : null
                 });
-                console.log(pActive)
+
                 pActive.children && pActive.children.some((data) => {
                     return data.active || data.Hactive;
                 }) ? this.$set(pActive, 'Hactive', true) : pActive && this.$set(pActive, 'Hactive', false)
-                pActive.children && pActive.children.every((data) => {
+                pActive.children && pActive.children.length > 0 && pActive.children.every((data) => {
                     return data.active;
                 }) ? this.$set(pActive, 'active', true) : pActive && null
             })
@@ -287,7 +290,8 @@ var CityC = {
         diguiChoose(data, active) {
             const that = this;
             this.$set(data, 'active', active)
-            data.children && data.children.forEach((item) => {
+            
+            data.children && data.children.length > 0 && data.children.forEach((item) => {
                 that.$set(item, 'active', active)
                 that.diguiChoose(item, active);
             });

@@ -25,7 +25,7 @@
         let mapState = Vuex.mapState;
         let mapMutations = Vuex.mapMutations;
         let mapActions = Vuex.mapActions;
-        
+
         console.log(VuexState)
 
         console.log(mapMutations(['add', 'reduce']))
@@ -42,16 +42,15 @@
             },
             methods: {
                 // 获取Vuex方法
-                ...mapMutations(['add', 'reduce']), 
+                ...mapMutations(['add', 'reduce']),
                 ...mapActions(['addAction'])
             },
             mounted() {
-                this.addAction((data)=> {
+                this.addAction((data) => {
                     console.log(data)
                 });
             },
         })
-
     </script>
 </body>
 

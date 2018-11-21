@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">app</div>
+
+    <script>
+        var state = {
+            text: '',
+            name: 'state'
+        }
+        var proxy = new Proxy(state, {
+            get(target, property){
+                if(target[property]){
+                    return target[property];
+                } else {
+                    throw(`${property} not defined`)
+                }
+            },
+            set(target, property, value){
+                document.getElementById('app').innerText = value;
+                target[property] = value
+            }
+        })
+        proxy.text = 123
+        console.log(proxy.text)    
+    </script>
+</body>
+</html>
